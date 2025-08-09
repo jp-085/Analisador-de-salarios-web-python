@@ -1,0 +1,1 @@
+# Analisador-de-salarios-web-python
