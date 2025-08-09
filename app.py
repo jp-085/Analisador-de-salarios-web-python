@@ -48,14 +48,14 @@ else:
 
 col1, col2, col3, col4 = st.columns(4)
 col1.metric('Salário médio', f'${salario_medio:,.0f}')
-col2.metric('salario maximo', f'${salario_maximo:.0f}')
+col2.metric('salario maximo', f'${salario_maximo:,.0f}')
 col3.metric('Total de registros', f'{total_registros:,}')
 col4.metric('Cargo mais frequente', cargo_mais_frequente)
 
 st.markdown('---')
 
 #Ánalises Visuais com plotly
-st.header('Gráficos')
+st.subheader('Gráficos')
 
 col_graf1, col_graf2 = st.columns(2)
 
@@ -106,8 +106,8 @@ with col_graf3:
         grafico_remoto.update_layout(title_x=0.1)
         st.plotly_chart(grafico_remoto, use_container_width=True)
     else:
-        st.warning('Nunhum dado pa exibir no gráfico dos tipos de trabalho.')
-        
+        st.warning('Nunhum dado para exibir no gráfico dos tipos de trabalho.')
+
 with col_graf4:
     if not df_filtrado.empty:
         df_ds = df_filtrado[df_filtrado['cargo'] == 'Data Scientist']
@@ -125,4 +125,5 @@ with col_graf4:
 
 # --- Tabela de Dados Detalhados ---
 st.subheader("Dados Detalhados")
+st.dataframe(df_filtrado)
 st.dataframe(df_filtrado)
